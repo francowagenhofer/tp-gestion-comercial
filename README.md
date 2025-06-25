@@ -20,17 +20,6 @@ Funcionalidades
 
 ---
 
-Estructura del proyecto
-
-TP_Integrador_Programa_de_Gestión/
-├── sources/ header/
-│ └── main.cpp 
-├──   header/
-│ └── mis_funciones.h
-└── TP_Integrador_Programa_de_Gestión.cbp
-
---- 
-
 Instrucciones para compilar y ejecutar
 
 1. Cloná el repositorio: https://github.com/francowagenhofer/tp-gestion-comercial.git

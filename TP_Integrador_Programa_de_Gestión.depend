@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1750815171 source:c:\users\franc\onedrive\desktop\1er cuatrimestre - utn\programación 1\tp integrador\tp_integrador_programa_de_gestión\main.cpp
+1750860228 source:c:\users\franc\onedrive\desktop\1er cuatrimestre - utn\programación 1\tp integrador\tp_integrador_programa_de_gestión\main.cpp
 	<iostream>
 	"mis_funciones.h"
 
-1750814885 c:\users\franc\onedrive\desktop\1er cuatrimestre - utn\programación 1\tp integrador\tp_integrador_programa_de_gestión\mis_funciones.h
+1750861703 c:\users\franc\onedrive\desktop\1er cuatrimestre - utn\programación 1\tp integrador\tp_integrador_programa_de_gestión\mis_funciones.h
 	<iostream>
 	<string>
 	<cstdlib>

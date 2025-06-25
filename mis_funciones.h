@@ -17,12 +17,11 @@ int pedirCodigoMarca()
     {
         cout << "Ingrese el codigo de la marca (1 a 10): ";
         cin >> codigo;
+
         if (codigo > 0 && codigo < 11)
-        {
             codigo_valido = true;
-        }
         else
-            cout << "Error: El codigo debe ser un entero entre 1 y 10." << endl;
+            cout << endl << "Error: El codigo debe ser un entero entre 1 y 10." << endl;
     }
     return codigo;
 }
@@ -35,10 +34,11 @@ string pedirNombreMarca()
     do {
         cout << "Ingrese el nombre de la marca: ";
         getline(cin, nombre_marca);
+        cout << endl;
+
         if (nombre_marca.empty() || nombre_marca == " ")
-        {
             cout << endl <<"Error: El nombre no puede estar vacio." << endl << endl;
-        }
+
     } while (nombre_marca.empty() || nombre_marca == " ");
 
     return nombre_marca;
@@ -60,7 +60,8 @@ int CargarMarcas(int codigos[], string nombres[], int marcas_requeridas)
 void ListarMarcas(int codigos[], string nombres[], int cantidadMarcas)
 {
     cout << endl << "- Lista de Marcas -" << endl;
-    for (int i = 0; i < cantidadMarcas; i++) {
+    for (int i = 0; i < cantidadMarcas; i++)
+    {
         cout << "Codigo: " << codigos[i] << " - Nombre: " << nombres[i] << endl;
     }
 }
@@ -90,8 +91,10 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
         do {
             cout << "Ingrese el codigo de producto (3 digitos): ";
             cin >> producto;
+
             if (producto < 100 || producto > 999)
                 cout << endl << "Codigo invalido. Debe tener 3 digitos." << endl <<endl;
+
         } while (producto < 100 || producto > 999);
 
         // Nombre del producto
@@ -100,8 +103,10 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
         do {
             cout << "Ingrese el nombre del producto: ";
             getline(cin, nombre);
+
             if (nombre.empty())
                 cout << endl << "El nombre no puede estar vacio." << endl << endl;
+
         } while (nombre.empty());
 
         // Precio de venta
@@ -109,8 +114,10 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
         do {
             cout << "Ingrese el precio de venta (mayor a 0): ";
             cin >> pVenta;
+
             if (pVenta <= 0)
                 cout << endl << "Debe ser mayor a 0." << endl << endl;
+
         } while (pVenta <= 0);
 
         // Precio de compra
@@ -118,8 +125,10 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
         do {
             cout << "Ingrese el precio de compra (mayor a 0): ";
             cin >> pCompra;
+
             if (pCompra <= 0)
                 cout << endl << "Debe ser mayor a 0." << endl << endl;
+
         } while (pCompra <= 0);
 
         // Stock disponible
@@ -127,8 +136,10 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
         do {
             cout << "Ingrese el stock disponible (mayor a 0): ";
             cin >> stock;
+
             if (stock <= 0)
                 cout << endl << "Debe ser mayor a 0." << endl << endl;
+
         } while (stock <= 0);
 
         // Codigo de marca
@@ -193,11 +204,11 @@ bool ValidarProductosCargados(string nombreProducto[])
 // -------------------------------------------------------------------------------------------------//
 // LOTE 3 - FORMAS DE PAGO
 
-const int cant_FormasDePago = 5;
+const int cantidadFormasPago = 5;
 
 bool BuscarCodigo(string codigo, string codigos_validos[], int& posicion)
 {
-    for (int i = 0; i < cant_FormasDePago; i++)
+    for (int i = 0; i < cantidadFormasPago; i++)
     {
         if (codigo == codigos_validos[i])
         {
@@ -220,16 +231,16 @@ bool BuscarRepetido(string codigo, string codigos_cargados[], int cantidadCargad
 
 void CargarFormasDePago(string codigo_FormaDePago[], string nombre_FormaDePago[], int porcentaje_FormaDePago[])
 {
-    string codigos_validos[cant_FormasDePago] = {"EF", "MP", "TR", "TC", "CT"};
-    string nombres_validos[cant_FormasDePago] = {"Efectivo", "Mercado Pago", "Transferencia", "Tarjeta de Credito", "Criptomoneda"};
+    string codigos_validos[cantidadFormasPago] = {"EF", "MP", "TR", "TC", "CT"};
+    string nombres_validos[cantidadFormasPago] = {"Efectivo", "Mercado Pago", "Transferencia", "Tarjeta de Credito", "Criptomoneda"};
 
     cout << "# Formas de pago disponibles:" << endl << endl;
-    for (int i = 0; i < cant_FormasDePago; i++)
+    for (int i = 0; i < cantidadFormasPago; i++)
     {
         cout << "- " << nombres_validos[i] << " (" << codigos_validos[i] << ")" << endl;
     }
 
-    for (int i = 0; i < cant_FormasDePago; i++)
+    for (int i = 0; i < cantidadFormasPago; i++)
     {
         string codigo;
         bool valido = false;
@@ -260,10 +271,10 @@ void CargarFormasDePago(string codigo_FormaDePago[], string nombre_FormaDePago[]
     }
 }
 
-void ListarFormasDePago(string codigo_FormaDePago[], string nombre_FormaDePago[], int porcentaje_FormaDePago[], int cant_FormasDePago)
+void ListarFormasDePago(string codigo_FormaDePago[], string nombre_FormaDePago[], int porcentaje_FormaDePago[], int cantidadFormasPago)
 {
     cout << endl <<"- Lista de Formas de Pago -" << endl;
-    for (int i = 0; i < cant_FormasDePago; i++)
+    for (int i = 0; i < cantidadFormasPago; i++)
     {
         cout << nombre_FormaDePago[i] << " (" << codigo_FormaDePago[i] << ") - Porcentaje: " << porcentaje_FormaDePago[i] << "%"
              << endl;

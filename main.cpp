@@ -45,13 +45,13 @@ int main()
     // # Declaracion de Variables
 
     // Lote de Marcas
-    const int marcas_requeridas = 3;
+    const int marcas_requeridas = 10;
     int codigos[marcas_requeridas];
     string nombres[marcas_requeridas];
     int cantidadMarcas = 0;
 
     // Lote de Productos
-    const int cantidadProductos = 3;
+    const int cantidadProductos = 20;
     int codigoProductos[cantidadProductos];
     string nombreProducto[cantidadProductos];
     float precioVenta[cantidadProductos];
@@ -69,11 +69,11 @@ int main()
     int cantidadVendidaPorProducto[cantidadProductos] = {};
     float recaudacionPorProducto[cantidadProductos] = {};
     int ventasPorFormaPago[cantidadFormasPago] = {};
-    int ventasEf[cantidadMarcas] = {};
-    int ventasMp[cantidadMarcas] = {};
-    int ventasTr[cantidadMarcas] = {};
-    int ventasTc[cantidadMarcas] = {};
-    int ventasCt[cantidadMarcas] = {};
+    int ventasEf[marcas_requeridas] = {};
+    int ventasMp[marcas_requeridas] = {};
+    int ventasTr[marcas_requeridas] = {};
+    int ventasTc[marcas_requeridas] = {};
+    int ventasCt[marcas_requeridas] = {};
     int comprasPorCliente[51] = {};
 
     // Menu

@@ -59,7 +59,7 @@ int CargarMarcas(int codigos[], string nombres[], int marcas_requeridas)
 // Lista de marcas
 void ListarMarcas(int codigos[], string nombres[], int cantidadMarcas)
 {
-    cout << endl << "- Lista de Marcas -" << endl;
+    cout << "- Lista de Marcas -" << endl;
     for (int i = 0; i < cantidadMarcas; i++)
     {
         cout << "Codigo: " << codigos[i] << " - Nombre: " << nombres[i] << endl;
@@ -82,7 +82,7 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
 {
     int cantidadProducto = 0, indice = 1;
 
-    while (cantidadProducto < 3)
+    while (cantidadProducto < 20)
     {
         cout << "Producto nro. " << indice << endl;
 
@@ -157,7 +157,7 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
                     if (codigos[i] == marca)
                     {
                         marcaValida = true;
-                        break;
+                        break; // como es que valida ... porrque hay un break ...
                     }
                 }
             }
@@ -482,7 +482,8 @@ void Reporte_RecaudacionPorProducto(int codigoProductos[], string nombreProducto
 void Reporte_PorcentajePorFormaDePago(string nombreFormaPago[], int ventasPorFormaPago[])
 {
     int totalVentas = 0;
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
+    {
         totalVentas += ventasPorFormaPago[i];
     }
 
@@ -491,7 +492,7 @@ void Reporte_PorcentajePorFormaDePago(string nombreFormaPago[], int ventasPorFor
     if (totalVentas == 0)
     {
         cout << "No se registraron ventas." << endl;
-        return;
+        return; // para cortar la funcion.
     }
 
     for (int i = 0; i < 5; i++)
@@ -550,8 +551,11 @@ void Reporte_Top10ClientesYCupones(int comprasPorCliente[])
 {
     // Verctor de índices de clientes
     int indices[51];
+
     for (int i = 1; i <= 50; i++)
+    {
         indices[i] = i;
+    }
 
     // Ordenar índices segun mayor a menor la cantidad de compras
     for (int i = 1; i < 50; i++)
@@ -569,6 +573,7 @@ void Reporte_Top10ClientesYCupones(int comprasPorCliente[])
 
     // Listado del top 10 de clientes
     cout << endl << "- Top 10 clientes con mas compras -" << endl;
+
     int top10 = 0;
     for (int i = 1; i <= 50 && top10 < 10; i++)
     {
@@ -581,17 +586,22 @@ void Reporte_Top10ClientesYCupones(int comprasPorCliente[])
 
     // Sorteo entre el top 10
     cout << endl << "- Sorteo de cupones (3 ganadores) -" << endl;
+
     srand(time(NULL));
+
     bool elegido[11] = {};
 
     int ganadores = 0;
     while (ganadores < 3)
     {
-        int pos = (rand() % top10) + 1;
-        if (!elegido[pos])
+
+        int pos = (rand() % top10) + 1; // se carga aleatoreamente un valor del top en la variable de posicion.
+        if (!elegido[pos]) // si el valor no fue elegio anteriormente entonces entra al if.
         {
             elegido[pos] = true;
+
             int clienteGanador = indices[pos];
+
             cout << "# Ganador - Codigo de cliente: " << clienteGanador << " - Compras: " << comprasPorCliente[clienteGanador] << endl;
             ganadores++;
         }

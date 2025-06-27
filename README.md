@@ -50,4 +50,4 @@ Proyecto realizado con fines educativos como parte del curso Programación 1 - U
 
 ---
 
-Franco Wagenhöfer
+José Moreno, Franco Wagenhöfer

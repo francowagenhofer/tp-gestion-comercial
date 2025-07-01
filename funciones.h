@@ -73,7 +73,7 @@ void Reporte_RecaudacionPorProducto(int codigoProductos[], string nombreProducto
                                     int cantidadVendidaPorProducto[], int stockDisponible[], int cantidadProductos);
 
 // Reporte 2
-void Reporte_PorcentajePorFormaDePago(string nombreFormaPago[], int ventasPorFormaPago[]);
+void Reporte_PorcentajePorFormaDePago(string nombreFormaPago[], int ventasPorFormaPago[], int cantidadFormasPago);
 
 // Reporte 3
 void Reporte_VentasPorMarcaYFormaPago(string nombresMarca[], int cantidadMarcas, int ventasEf[],

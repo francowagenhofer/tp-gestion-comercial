@@ -33,8 +33,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="funciones.cpp" />
+		<Unit filename="funciones.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="mis_funciones.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

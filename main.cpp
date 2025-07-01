@@ -6,7 +6,7 @@ using namespace std;
 
 void SubmenuReportes(
     int codigoProductos[], string nombreProducto[], int stockDisponible[], int cantidadVendidaPorProducto[],
-    float recaudacionPorProducto[], string nombreFormaPago[], int ventasPorFormaPago[],
+    float recaudacionPorProducto[], string nombreFormaPago[], int ventasPorFormaPago[], int cantidadFormasPago,
     string nombresMarca[], int comprasPorCliente[], int cantidadProductos, int cantidadMarcas,
     int ventasEf[], int ventasMp[], int ventasTr[], int ventasTc[], int ventasCt[], int cantidadCodigoClientes);
 
@@ -128,7 +128,7 @@ int main()
             {
                 SubmenuReportes(codigoProductos, nombreProducto, stockDisponible,
                                 cantidadVendidaPorProducto, recaudacionPorProducto, nombre_FormaDePago,
-                                ventasPorFormaPago, nombres, comprasPorCliente, cantidadProductos, cantidadMarcas,
+                                ventasPorFormaPago, cantidadFormasPago,nombres, comprasPorCliente, cantidadProductos, cantidadMarcas,
                                 ventasEf, ventasMp, ventasTr, ventasTc, ventasCt, cantidadCodigoClientes);
             }
             break;
@@ -145,7 +145,7 @@ int main()
 
 void SubmenuReportes(
     int codigoProductos[], string nombreProducto[], int stockDisponible[],int cantidadVendidaPorProducto[],
-    float recaudacionPorProducto[], string nombreFormaPago[], int ventasPorFormaPago[],
+    float recaudacionPorProducto[], string nombreFormaPago[], int ventasPorFormaPago[], int cantidadFormasPago,
     string nombresMarca[], int comprasPorCliente[], int cantidadProductos, int cantidadMarcas,
     int ventasEf[], int ventasMp[], int ventasTr[], int ventasTc[], int ventasCt[], int cantidadCodigoClientes)
 {
@@ -172,7 +172,7 @@ void SubmenuReportes(
             break;
         case 2:
             cout << endl << "2. Reporte de porcentaje de ventas por forma de pago" << endl;
-            Reporte_PorcentajePorFormaDePago(nombreFormaPago, ventasPorFormaPago);
+            Reporte_PorcentajePorFormaDePago(nombreFormaPago, ventasPorFormaPago, cantidadFormasPago);
             break;
         case 3:
             cout << endl << "3. Reporte de ventas por marca y forma de pago" << endl;

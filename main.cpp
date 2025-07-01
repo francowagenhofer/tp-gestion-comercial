@@ -5,12 +5,9 @@
 using namespace std;
 
 void SubmenuReportes(
-    int codigoProductos[], string nombreProducto[], int stockDisponible[],
-    int cantidadVendidaPorProducto[], float recaudacionPorProducto[],
-    string codigoFormaPago[], string nombreFormaPago[], int ventasPorFormaPago[],
-    int codigosMarca[], string nombresMarca[],
-    int comprasPorCliente[],
-    int cantidadProductos, int cantidadMarcas, int cantidadFormasPago,
+    int codigoProductos[], string nombreProducto[], int stockDisponible[], int cantidadVendidaPorProducto[],
+    float recaudacionPorProducto[], string nombreFormaPago[], int ventasPorFormaPago[],
+    string nombresMarca[], int comprasPorCliente[], int cantidadProductos, int cantidadMarcas,
     int ventasEf[], int ventasMp[], int ventasTr[], int ventasTc[], int ventasCt[], int cantidadCodigoClientes);
 
 int main()
@@ -28,7 +25,7 @@ int main()
     float precioVenta[cantidadProductos];
     float precioCompra[cantidadProductos];
     int stockDisponible[cantidadProductos];
-    int codigosMarca[cantidadProductos];
+    int codigosMarcaProducto[cantidadProductos];
 
     // Lote de Formas de pago
     const int cantidadFormasPago = 5;
@@ -40,14 +37,17 @@ int main()
     int cantidadVendidaPorProducto[cantidadProductos] = {};
     float recaudacionPorProducto[cantidadProductos] = {};
     int ventasPorFormaPago[cantidadFormasPago] = {};
+
     int ventasEf[marcas_requeridas] = {};
     int ventasMp[marcas_requeridas] = {};
     int ventasTr[marcas_requeridas] = {};
     int ventasTc[marcas_requeridas] = {};
     int ventasCt[marcas_requeridas] = {};
+
     const int cantidadCodigoClientes = 50;
     int comprasPorCliente[cantidadCodigoClientes] = {};
 
+    // Menu
     int opcion = 0;
     while (opcion != 6)
     {
@@ -77,10 +77,10 @@ int main()
             else
             {
                 CargarProductos(codigoProductos, nombreProducto, precioVenta,
-                                precioCompra, stockDisponible, codigosMarca,
+                                precioCompra, stockDisponible, codigosMarcaProducto,
                                 codigos, cantidadMarcas, cantidadProductos);
                 ListarProductos(codigoProductos, nombreProducto, precioVenta, precioCompra,
-                                stockDisponible, codigosMarca, cantidadProductos);
+                                stockDisponible, codigosMarcaProducto, cantidadProductos);
             }
             break;
         case 3:
@@ -108,7 +108,7 @@ int main()
             else
             {
                 CargarVentas(codigoProductos, cantidadProductos, codigo_FormaDePago,
-                             cantidadFormasPago, precioVenta, stockDisponible, codigos, codigosMarca, cantidadMarcas,
+                             cantidadFormasPago, precioVenta, stockDisponible, codigos, codigosMarcaProducto, cantidadMarcas,
                              porcentaje_FormaDePago, cantidadVendidaPorProducto, recaudacionPorProducto, ventasPorFormaPago,
                              ventasEf, ventasMp, ventasTr, ventasTc, ventasCt,comprasPorCliente);
             }
@@ -127,10 +127,8 @@ int main()
             else
             {
                 SubmenuReportes(codigoProductos, nombreProducto, stockDisponible,
-                                cantidadVendidaPorProducto, recaudacionPorProducto,
-                                codigo_FormaDePago, nombre_FormaDePago, ventasPorFormaPago,
-                                codigos, nombres, comprasPorCliente,
-                                cantidadProductos, cantidadMarcas, cantidadFormasPago,
+                                cantidadVendidaPorProducto, recaudacionPorProducto, nombre_FormaDePago,
+                                ventasPorFormaPago, nombres, comprasPorCliente, cantidadProductos, cantidadMarcas,
                                 ventasEf, ventasMp, ventasTr, ventasTc, ventasCt, cantidadCodigoClientes);
             }
             break;
@@ -146,12 +144,9 @@ int main()
 }
 
 void SubmenuReportes(
-    int codigoProductos[], string nombreProducto[], int stockDisponible[],
-    int cantidadVendidaPorProducto[], float recaudacionPorProducto[],
-    string codigoFormaPago[], string nombreFormaPago[], int ventasPorFormaPago[],
-    int codigosMarca[], string nombresMarca[],
-    int comprasPorCliente[],
-    int cantidadProductos, int cantidadMarcas, int cantidadFormasPago,
+    int codigoProductos[], string nombreProducto[], int stockDisponible[],int cantidadVendidaPorProducto[],
+    float recaudacionPorProducto[], string nombreFormaPago[], int ventasPorFormaPago[],
+    string nombresMarca[], int comprasPorCliente[], int cantidadProductos, int cantidadMarcas,
     int ventasEf[], int ventasMp[], int ventasTr[], int ventasTc[], int ventasCt[], int cantidadCodigoClientes)
 {
     int subopcion = 0;

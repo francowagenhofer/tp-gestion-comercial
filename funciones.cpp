@@ -6,9 +6,10 @@
 
 using namespace std;
 
+// -------------------------------------------------------------------------------------------------//
 // LOTE 1 - MARCAS
 
-int pedirCodigoMarca() // Funcion INT porque retorna/devuelve un valor numerico luego de procesar
+int pedirCodigoMarca()
 {
     int codigo;
     bool codigo_valido = false;
@@ -23,10 +24,10 @@ int pedirCodigoMarca() // Funcion INT porque retorna/devuelve un valor numerico 
         else
             cout << endl << "Error: El codigo debe ser un entero entre 1 y 10." << endl;
     }
-    return codigo; // aca la funcion devuelve un valor numerico
+    return codigo;
 }
 
-string pedirNombreMarca() // Funcion STRING porque retorna/devuelve una secuencia de caracteres luego de processar la funcion
+string pedirNombreMarca()
 {
     string nombre_marca;
 
@@ -43,22 +44,21 @@ string pedirNombreMarca() // Funcion STRING porque retorna/devuelve una secuenci
     }
     while (nombre_marca.empty() || nombre_marca == " ");
 
-    return nombre_marca;  // aca la funcion devuelve una secuencia de caracteres
+    return nombre_marca;
 }
 
 int CargarMarcas(int codigos[], string nombres[], int marcas_requeridas)
 {
     int cantidadMarcas = 0;
-    for (int i = 0; i < marcas_requeridas; i++) // ciclo for para que se carguen las marcas requeridas (10)
+    for (int i = 0; i < marcas_requeridas; i++)
     {
         codigos[i] = pedirCodigoMarca();
         nombres[i] = pedirNombreMarca();
-        cantidadMarcas++; // sirve para validaciones futuras (aunque no muy exigente) si se cargaron las marcas requeridas
+        cantidadMarcas++;
     }
     return cantidadMarcas;
 }
 
-// Lista de marcas
 void ListarMarcas(int codigos[], string nombres[], int cantidadMarcas)
 {
     cout << "- Lista de Marcas -" << endl;
@@ -68,7 +68,6 @@ void ListarMarcas(int codigos[], string nombres[], int cantidadMarcas)
     }
 }
 
-// -------------------------------------------------------------------------------------------------//
 // -------------------------------------------------------------------------------------------------//
 // LOTE 2 - PRODUCTOS
 
@@ -84,20 +83,14 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
         do
         {
             cout << "Ingrese el codigo de producto (3 digitos): ";
-            cin >> producto;
-
-            // Para que tenga tres digitos se pide que sea un numero entre 100 y 999
-            // Si no cumple, entra en el ciclo while hasta que se ingrese un valor valido.
+            cin >> producto;.
 
             if (producto < 100 || producto > 999)
                 cout << endl << "Codigo invalido. Debe tener 3 digitos." << endl <<endl;
-
         }
         while (producto < 100 || producto > 999);
 
         // Nombre del producto
-        // cin.ignore() descarta el Enter pendiente que quedó después del cin anterior
-        // Esto evita que getline() lea una línea vacía por error
         cin.ignore();
         string nombre;
         do
@@ -107,7 +100,6 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
 
             if (nombre.empty())
                 cout << endl << "El nombre no puede estar vacio." << endl << endl;
-
         }
         while (nombre.empty());
 
@@ -120,7 +112,6 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
 
             if (pVenta <= 0)
                 cout << endl << "Debe ser mayor a 0." << endl << endl;
-
         }
         while (pVenta <= 0);
 
@@ -133,7 +124,6 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
 
             if (pCompra <= 0)
                 cout << endl << "Debe ser mayor a 0." << endl << endl;
-
         }
         while (pCompra <= 0);
 
@@ -146,7 +136,6 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
 
             if (stock <= 0)
                 cout << endl << "Debe ser mayor a 0." << endl << endl;
-
         }
         while (stock <= 0);
 
@@ -159,15 +148,12 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
             cin >> marca;
 
             marcaValida = false;
-            if (marca >= 1 && marca <= 10) // proceso de verificacion
+            if (marca >= 1 && marca <= 10)
             {
                 for (int i = 0; i < cantidadMarcas; i++)
                 {
                     if (marca == codigos[i])
-                    {
                         marcaValida = true;
-                        break;
-                    }
                 }
             }
 
@@ -185,7 +171,6 @@ void CargarProductos(int codigoProductos[], string nombreProducto[], float preci
         cout << endl;
     }
 }
-
 
 // Lista de productos
 void ListarProductos(int codigoProductos[], string nombreProducto[], float precioVenta[],
@@ -307,7 +292,6 @@ void ListarFormasDePago(string codigo_FormaDePago[], string nombre_FormaDePago[]
     }
 }
 
-
 // -------------------------------------------------------------------------------------------------//
 // LOTE 4 - VENTAS
 
@@ -338,7 +322,6 @@ int PedirCodigoProducto(int codigoProductos[], int cantidadProductos)
 
     return posicion;
 }
-
 
 int PedirFormaDePago(string codigoFormaPago[], int cantidadFormasPago)
 {
@@ -413,12 +396,11 @@ int PedirDiaVenta()
     return dia;
 }
 
-
 void CargarVentas(
     int codigoProductos[], int cantidadProductos,  string codigoFormaPago[], int cantidadFormasPago,
-    float precioVenta[], int stockDisponible[], int codigos[], int codigosMarca[], int cantidadMarcas,
+    float precioVenta[], int stockDisponible[], int codigos[], int codigosMarcaProducto[], int cantidadMarcas,
     int porcentaje_FormaDePago[],
-    // reportes
+
     int cantidadVendidaPorProducto[], float recaudacionPorProducto[], int ventasPorFormaPago[],
     int ventasEf[], int ventasMp[], int ventasTr[], int ventasTc[], int ventasCt[],
     int comprasPorCliente[])
@@ -430,6 +412,7 @@ void CargarVentas(
 
     while (nro_compra != 0)
     {
+        // Ingreso de valores
         int posicion_producto = PedirCodigoProducto(codigoProductos, cantidadProductos);
         int posicion_fdp = PedirFormaDePago(codigoFormaPago, cantidadFormasPago);
         int cantidad_vendida = PedirCantidadVendida();
@@ -446,9 +429,8 @@ void CargarVentas(
         ventasPorFormaPago[posicion_fdp]++;
 
         // Reporte 3 - Ventas por marca y forma de pago
-        int marcaProducto = codigosMarca[posicion_producto];
+        int marcaProducto = codigosMarcaProducto[posicion_producto];
         int indiceMarca = -1;
-
         for (int i = 0; i < cantidadMarcas; i++)
         {
             if (marcaProducto == codigos[i])
@@ -486,7 +468,7 @@ void CargarVentas(
 // -------------------------------------------------------------------------------------------------//
 // 5 - REPORTES
 
-// Reportes 1 - Recaudacion por producto
+// Reportes 1
 void Reporte_RecaudacionPorProducto(int codigoProductos[], string nombreProducto[], float recaudacionPorProducto[],
                                     int cantidadVendidaPorProducto[], int stockDisponible[], int cantidadProductos)
 {
@@ -520,7 +502,7 @@ void Reporte_RecaudacionPorProducto(int codigoProductos[], string nombreProducto
     cout << endl;
 }
 
-// Reporte 2 - Porcentaje por forma de pago
+// Reporte 2
 void Reporte_PorcentajePorFormaDePago(string nombreFormaPago[], int ventasPorFormaPago[])
 {
     int totalVentas = 0;
@@ -534,7 +516,7 @@ void Reporte_PorcentajePorFormaDePago(string nombreFormaPago[], int ventasPorFor
     if (totalVentas == 0)
     {
         cout << "No se registraron ventas." << endl;
-        return; // para cortar la funcion.
+        return;
     }
 
     for (int i = 0; i < 5; i++)
@@ -545,7 +527,7 @@ void Reporte_PorcentajePorFormaDePago(string nombreFormaPago[], int ventasPorFor
     cout << endl;
 }
 
-// Reporte 3 - Ventas por marca y forma de pago
+// Reporte 3
 void Reporte_VentasPorMarcaYFormaPago(string nombresMarca[], int cantidadMarcas, int ventasEf[],
                                       int ventasMp[], int ventasTr[], int ventasTc[], int ventasCt[])
 {
@@ -567,7 +549,7 @@ void Reporte_VentasPorMarcaYFormaPago(string nombresMarca[], int cantidadMarcas,
     cout << endl;
 }
 
-// Reporte 4 - Productos sin ventas
+// Reporte 4
 void Reporte_ProductosSinVentas(int codigoProductos[], string nombreProducto[], int cantidadVendidaPorProducto[], int cantidadProductos)
 {
     int posicion = 1;
@@ -589,19 +571,19 @@ void Reporte_ProductosSinVentas(int codigoProductos[], string nombreProducto[], 
         cout << "Todos los productos registraron ventas." << endl << endl;
 }
 
+// Reporte 5
 void Reporte_Top10ClientesYCupones(int comprasPorCliente[], int cantidadCodigoClientes)
 {
-    // Verctor de índices de clientes
+    // Orden de posiciones mayor a menor
     int indices[cantidadCodigoClientes];
     for (int i = 0; i < cantidadCodigoClientes; i++)
     {
         indices[i] = i;
     }
 
-    // Ordenar índices segun mayor a menor la cantidad de compras
-    for (int i = 0; i < cantidadCodigoClientes - 1; i++)
+    for (int i = 0; i < cantidadCodigoClientes - 1; i++) // pasadas
     {
-        for (int j = 0; j < cantidadCodigoClientes - 1 - i; j++)
+        for (int j = 0; j < cantidadCodigoClientes - 1 - i; j++) // comparaciones
         {
             if (comprasPorCliente[indices[j]] < comprasPorCliente[indices[j + 1]])
             {
@@ -612,23 +594,19 @@ void Reporte_Top10ClientesYCupones(int comprasPorCliente[], int cantidadCodigoCl
         }
     }
 
-
     cout << endl << "- Top 10 clientes con mas compras -" << endl;
     const int top10 = 10;
-
     for (int i = 0; i < top10; i++)
     {
-        cout << i + 1 <<". Codigo de cliente: " << indices[i] + 1 << " - Compras: " << comprasPorCliente[indices[i]] << endl;
+        int codigoCliente = indices[i] + 1;
+        cout << i + 1 <<". Codigo de cliente: " << codigoCliente << " - Compras: " << comprasPorCliente[codigoCliente - 1] << endl;
     }
 
     cout << endl << "- Sorteo de cupones (3 ganadores) -" << endl;
-
     srand(time(NULL));
-    //Esto inicializa el generador de números aleatorios usando la hora actual como semilla,
-    // para que el rand() no devuelva siempre lo mismo.
 
+    bool yaSorteado[top10] = {}; // vector bool iniciado en false, para validar si ya fue sorteada la posicion x
     int ganadores = 0;
-    bool yaSorteado[top10] = {};
 
     while (ganadores < 3)
     {
@@ -638,8 +616,8 @@ void Reporte_Top10ClientesYCupones(int comprasPorCliente[], int cantidadCodigoCl
         {
             yaSorteado[posicion] = true;
 
-            // int clienteGanador = indices[pos] + 1;
-            cout << "# Ganador - Codigo de cliente: " << indices[posicion] + 1 << " - Compras: " << comprasPorCliente[indices[posicion]] << endl;
+            int codigoClienteGanador = indices[posicion] + 1;
+            cout << "# Ganador - Codigo de cliente: " << codigoClienteGanador << " - Compras: " << comprasPorCliente[codigoClienteGanador - 1] << endl;
             ganadores++;
         }
     }

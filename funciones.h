@@ -59,7 +59,7 @@ int PedirDiaVenta();
 void CargarVentas(
     int codigoProductos[], int cantidadProductos,  string codigoFormaPago[],
     int cantidadFormasPago, float precioVenta[], int stockDisponible[], int codigos[],
-    int codigosMarca[], int cantidadMarcas, int porcentaje_FormaDePago[],
+    int codigosMarcaProducto[], int cantidadMarcas, int porcentaje_FormaDePago[],
 
     int cantidadVendidaPorProducto[], float recaudacionPorProducto[], int ventasPorFormaPago[],
     int ventasEf[], int ventasMp[], int ventasTr[], int ventasTc[], int ventasCt[],
@@ -68,27 +68,26 @@ void CargarVentas(
 // -------------------------------------------------------------------------------------------------//
 // 5 - REPORTES
 
-// Reportes 1 - Recaudacion por producto
+// Reportes 1
 void Reporte_RecaudacionPorProducto(int codigoProductos[], string nombreProducto[], float recaudacionPorProducto[],
                                     int cantidadVendidaPorProducto[], int stockDisponible[], int cantidadProductos);
 
-// Reporte 2 - Porcentaje por forma de pago
+// Reporte 2
 void Reporte_PorcentajePorFormaDePago(string nombreFormaPago[], int ventasPorFormaPago[]);
 
-// Reporte 3 - Ventas por marca y forma de pago
+// Reporte 3
 void Reporte_VentasPorMarcaYFormaPago(string nombresMarca[], int cantidadMarcas, int ventasEf[],
                                       int ventasMp[], int ventasTr[], int ventasTc[], int ventasCt[]);
 
-// Reporte 4 - Productos sin ventas
+// Reporte 4
 void Reporte_ProductosSinVentas(int codigoProductos[], string nombreProducto[],
                                 int cantidadVendidaPorProducto[], int cantidadProductos);
 
-// 5 - Reporte Top 10 Clientes Y Cupones
+// Reporte 5
 void Reporte_Top10ClientesYCupones(int comprasPorCliente[], int cantidadCodigoClientes);
 
 
 // -------------------------------------------------------------------------------------------------//
-
 // VALIDACIONES DEL MENU
 
 bool ValidarMarcasCargadas(int cantidadMarcas, int marcas_requeridas);

@@ -92,8 +92,8 @@ int main()
                 cout << "# Primero debe cargar el lote de productos." << endl;
             else
             {*/
-                CargarFormasDePago(codigo_FormaDePago, nombre_FormaDePago, porcentaje_FormaDePago, cantidadFormasPago);
-                ListarFormasDePago(codigo_FormaDePago, nombre_FormaDePago, porcentaje_FormaDePago, cantidadFormasPago);
+            CargarFormasDePago(codigo_FormaDePago, nombre_FormaDePago, porcentaje_FormaDePago, cantidadFormasPago);
+            ListarFormasDePago(codigo_FormaDePago, nombre_FormaDePago, porcentaje_FormaDePago, cantidadFormasPago);
             //}
             break;
         case 4:

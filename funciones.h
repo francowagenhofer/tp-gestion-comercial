@@ -48,7 +48,7 @@ void ListarFormasDePago(string codigo_FormaDePago[], string nombre_FormaDePago[]
 
 int PedirCodigoProducto(int codigoProductos[], int cantidadProductos);
 
-int PedirFormaDePago(string codigoFormaPago[], int cantidadFormasPago);
+int PedirCodigoFormaDePago(string codigoFormaPago[], int cantidadFormasPago);
 
 int PedirCantidadVendida();
 
